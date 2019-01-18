@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>BestFit </title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<style>
+
+
+	@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {font-family: 'Lato', sans-serif;  }
+
+
+	.demoHeaders {
+		margin-top: 2em;
+	}
+
+
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 60px;
+	}
+
+	.mainContainer{
+		width:800px;
+
+	
+	}
+
+	.leftContainer{
+		width:350px;
+		
+		float:left;
+		
+	}
+
+	.rightContainer{
+		width:400px;
+	    margin-left: 30px;
+		float:left;
+		
+	}
+
+	li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
+	background: none;
+	border:0px!important;
+	border-radius: 20px;
+}
+
+.ui-tabs-nav li.ui-tabs-active{
+	background: #373737!important;
+	
+}
+
+div#tabs {
+    border: 0px;
+}
+
+ul#bootes {
+    padding: 0px;
+}
+
+#botoes li{
+    display: inline;
+    list-style-type: none;
+    padding-right: 0px;
+	vertical-align: top;
+	padding-left:0px;
+}
+
+#botoes li img{width:60px; height:60px;}
+
+
+ul#bootes-figure {
+    padding: 0px;
+}
+#bootes-figure li{
+	display: inline;
+    list-style-type: none;
+    padding-right: 0px;
+	vertical-align: top;
+	padding-left:0px;
+}
+#bootes-figure li img{width:82px; height:144px;}
+
+
+ul#bootes-hairs {
+    padding: 0px;
+}
+#bootes-hairs li {
+	display: inline;
+    list-style-type: none;
+    padding-right: 0px;
+	vertical-align: top;
+	padding-left:0px;
+}
+
+
+
+#botoes-hairs li img{width:60px; height:60px;}
+
+
+#tabs-1 .lbl{ float: left; width: 5em; margin-right: 1em; text-align: right; }
+
+.rcSize{color:#ae1e7d; font-weight: bold;}
+
+.mandatory{color:#ae1e7d; font-weight: bold; }
+
+  #result {
+            width: 280px;
+            height:418px;
+            outline: 1px dotted gray;
+            margin: 0;
+            float: left;
+            background-repeat: no-repeat;
+        }
+	</style>
+</head>
+<body >
+
+		<p>
+				<button id="dialog-link" onclick="myFunction()" class="ui-button ui-corner-all ui-widget btButton">
+					<span class="ui-icon ui-icon-newwin"></span>Your Best Fit
+				</button>
+			</p>
+
+			<script>
+				function myFunction() {
+					document.body.style.backgroundColor = "#ccc";
+				//	document.body.style.opacity = "0.4";
+					
+				$(document).ready(function() {
+        $('.ui-dialog-titlebar-close').click(function() {
+          //  alert('ho ho ho');
+			document.body.style.backgroundColor = "#fff";
+        });
+    });
+				}
+				</script>
+	<div id="dialog" title="FIND YOUR BEST FIT">
+
+		<div class="mainContainer">
+			<div class="leftContainer">
+					<div id="result">
+						
+					</div>
+			</div>
+			<div class="rightContainer">
+					<div id="tabs">
+							<ul>
+								<li><a href="#tabs-1" target="1">Sizing</a></li>
+								<li><a href="#tabs-2" target="2">Figure</a></li>
+								<li><a href="#tabs-3" target="3">Model</a></li>
+								<li><a href="#tabs-4" target="4"> Hair</a></li>
+							</ul>
+							
+							<div id="tabs-1" class="targetDiv1">
+									<p>     <label class="lbl"> WAIST</label> <span class="mandatory">*</span>
+                                        <select size="1" id="waist">
+                                        <!--      <option value="0" selected>Select Weight</option>-->
+                                            <option value="1" selected>32</option>
+                                            <option value="2">34</option>
+                                            <option value="3">36</option>
+											<option value="4">38</option>
+										
+											<option value="1">40</option>
+                                            <option value="2">42</option>
+                                            <option value="3">44</option>
+											<option value="4">46</option>
+
+											<option value="1">48</option>
+                                            <option value="2">50</option>
+                                            <option value="3">52</option>
+											<option value="4">54</option>
+											
+                                        </select>
+                                            </p>
+
+
+                                            
+                                    <p>     <label  class="lbl"> HIP</label> <span class="mandatory">*</span>
+                                        <select size="1" id="Hip">
+                                             <option value="0" selected>40.5</option>
+                                           
+                                            <option value="2">42.5</option>
+                                            <option value="3">44.5</option>
+                                            <option value="4">46.5</option>
+                                            <option value="5">48.5</option>
+
+                                            <option value="6">50.5</option>
+                                            <option value="7">52.5</option>
+                                            <option value="8">54.5</option>
+                                            <option value="9">56.5</option>
+                                            <option value="10">58.5</option>
+
+                                            <option value="11">60.5</option>
+                                            <option value="12">62.5</option>
+                                          
+                                        </select>
+                                            </p>
+                                   
+                                            
+                                 <p>   <label  class="lbl"> HEIGHT</label> <span class="mandatory">*</span>
+                                    <select size="1" id="height">
+                                       <!--<option value="0" selected>Select Height</option>--> 
+                                        <option value="1">4.11</option>
+                                        <option value="2">6.2</option>
+                                        <option value="3">6.4</option>
+                                    </select>
+                                </p>
+                                 
+
+
+                                <p>     <label  class="lbl"> INSEAM</label> <span class="mandatory">*</span>
+                                    <select size="1" id="Inseam">
+                                    <!--      <option value="0" selected>Select Weight</option>-->
+                                        <option value="1">24.5</option>
+                                        <option value="2">25.5</option>
+                                        <option value="3">26.5</option>
+                                        <option value="3">27.5</option>
+                                     
+
+                                      
+                                    </select>
+                                        </p>
+                                  
+                                      
+								
+									<div id="radioset">
+									
+										<input type="radio" id="slim" name="radio" checked="checked" value="slim"><label for="slim">SLIM</label>
+										<input type="radio" id="average" name="radio" value="average"><label for="average">AVERAGE</label>
+										<input type="radio" id="full" name="radio" value="full"><label for="full">FULL</label>
+									</div>
+							
+
+							</div>
+							<div id="tabs-2" class="targetDiv2">
+								<ul id="botoes">
+
+									<li><a href="#" data-figure='abc'><img src="images/model-crop/model-1.jpg" /></a></li>
+									<li><a href="#" data-figure='def'><img src="images/model-crop/model-2.jpg" /></a></li>
+									<li><a href="#" data-figure='ghi'><img src="images/model-crop/model-3.jpg" /></a></li>        
+									<li><a href="#" data-figure='jkl'><img src="images/model-crop/model-4.jpg" /></a></li>
+								</ul>
+
+
+							</div>
+							<div id="tabs-3" class="targetDiv3">
+									<ul id="bootes-figure">    
+										<li><a href="#" data-model='figure1'><img src="images/figure-crop/figure-style-1.jpg" /></a></li>
+										<li><a href="#" data-model='figure2'><img src="images/figure-crop/figure-style-2.jpg" /></a></li>
+										<li><a href="#" data-model='figure3'><img src="images/figure-crop/figure-style-3.jpg" /></a></li>
+		
+										<li><a href="#" data-model='figure4'><img src="images/figure-crop/figure-style-4.jpg" /></a></li>
+									</ul>
+
+
+							</div>
+							<div id="tabs-4" class="targetDiv4">								  
+									<ul id="bootes-hairs">  
+										<li><a href="#" data-hair='brownhair'><img src="images/hair-crop/hairs-style-3.jpg" /></a></li>
+										<li><a href="#" data-hair='greyhair'><img src="images/hair-crop/hairs-style-4.jpg" /></a></li>
+										<li><a href="#" data-hair='blackKhair'><img src="images/hair-crop/hairs-style-5.jpg" /></a></li>
+										<li><a href="#" data-hair='whiteKhair'><img src="images/hair-crop/hairs-style-2.jpg" /></a></li>
+									</ul>
+
+							</div>
+						</div>
+
+							<hr>
+
+
+							<p>Our Recommended size is<span class="rcSize"> 27</span></p>
+
+						<div >
+
+							
+								<button type="button" class="ui-button ui-corner-all ui-widget btButton">ADD TO CART</button>
+							
+						</div>
+				</div>
+		</div>
+			</div>
+		</div>
+		
+		
+
+	</div>
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+
+$( "#accordion" ).accordion();
+
+
+
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$( "#autocomplete" ).autocomplete({
+	source: availableTags
+});
+
+
+
+$( "#button" ).button();
+$( "#button-icon" ).button({
+	icon: "ui-icon-gear",
+	showLabel: false
+});
+
+
+
+$( "#radioset" ).buttonset();
+
+
+
+$( "#controlgroup" ).controlgroup();
+
+
+
+$( "#tabs" ).tabs();
+
+
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	width: 850,
+	height:500,
+	top:10,
+
+	buttons: [
+		//{
+			//text: "ADD TO CART",
+		//	click: function() {
+			//	$( this ).dialog( "close" );
+			//}
+		//}
+		//{
+		//	text: "Cancel",
+		//	click: function() {
+		//		$( this ).dialog( "close" );
+		//	}
+		//}
+	]
+});
+
+// Link to open the dialog
+$( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+});
+
+
+
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+
+
+
+$( "#slider" ).slider({
+	range: true,
+	values: [ 17, 67 ]
+});
+
+
+
+$( "#progressbar" ).progressbar({
+	value: 20
+});
+
+
+
+$( "#spinner" ).spinner();
+
+
+
+$( "#menu" ).menu();
+
+
+
+$( "#tooltip" ).tooltip();
+
+
+
+$( "#selectmenu" ).selectmenu();
+
+
+// Hover states on the static widgets
+$( "#dialog-link, #icons li" ).hover(
+	function() {
+		$( this ).addClass( "ui-state-hover" );
+	},
+	function() {
+		$( this ).removeClass( "ui-state-hover" );
+	}
+);
+
+
+
+
+
+//main Script//
+
+
+
+  $('[name="radio"]').change(function (){ setProductimage(imageOptions);})
+
+  var imageOptions = {
+            product: 'xemo', height: '4.11', thigh: 'thigh',
+            waist: '32', Hip: '40.5', Inseam: '24.5', model: 'model1', hair: 'blackhair', figure: 'figure',
+			size: 'slim'
+           
+  };
+
+   function setProductimage(options) {
+   
+		var _size = $('[name="radio"]:checked').val();
+		options.size = _size;
+		
+	
+		
+		var path = "images/" + options.product + "/" + options.model + "_" + options.waist + "_" + options.size + "_" + options.Hip + "_" + options.height + "_" + options.Inseam + "_"  + options.hair + "_" +  options.model + "_" +  options.figure + ".jpg";
+		$('#result').css({ 'background-image': 'url(' + path + ')' });
+	}
+	function bindFilterComboEvent(control, prop) {
+		$('#' + control).on('change', function () {
+			imageOptions[prop] = $('#' + control + ' :selected').text();
+			setProductimage(imageOptions);
+		});
+	}
+
+
+	
+	bindFilterComboEvent('height', 'height');
+	bindFilterComboEvent('waist', 'waist');
+	bindFilterComboEvent('Hip', 'Hip');
+	bindFilterComboEvent('Inseam', 'Inseam');
+	//bindFilterComboEvent('braSize', 'size');
+	bindFilterComboEvent('thigh', 'thigh');
+	
+	
+
+	   
+
+        $('#tabs-4 li a').click(function () {
+            var hair = $(this).data('hair');
+            imageOptions.hair = hair;
+            setProductimage(imageOptions);
+
+		})
+		
+
+
+		$('#tabs-2 li a').click(function () {
+            var figure = $(this).data('figure');
+            imageOptions.figure = figure;
+            setProductimage(imageOptions);
+
+		})
+		
+		$('#tabs-3 li a').click(function () {
+            var model = $(this).data('model');
+            imageOptions.model = model;
+            setProductimage(imageOptions);
+
+        })
+		
+		
+		
+		
+
+
+
+
+
+</script>
+</body>
+</html>
